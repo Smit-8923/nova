@@ -1,0 +1,87 @@
+ @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply transition-colors duration-300;
+  }
+  
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-dark-600 rounded-full;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-500;
+  }
+
+  /* Ensure all text has proper dark mode colors */
+  .dark * {
+    color-scheme: dark;
+  }
+
+  /* Fix any remaining light text in dark mode */
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    @apply text-white;
+  }
+
+  .dark p, .dark span, .dark div {
+    @apply text-gray-300;
+  }
+
+  /* Ensure form elements have proper dark mode styling */
+  .dark input, .dark textarea, .dark select {
+    @apply bg-dark-700 border-dark-600 text-white placeholder-gray-400;
+  }
+
+  .dark input:focus, .dark textarea:focus, .dark select:focus {
+    @apply bg-dark-600 border-indigo-500;
+  }
+
+  /* Logo debugging styles */
+  .logo-icon {
+    background-color: #3B82F6 !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .logo-icon * {
+    display: block !important;
+  }
+
+  /* Logo image styles */
+  img[alt*="Logo"] {
+    max-height: 64px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+  }
+
+  /* Dark mode logo adjustments */
+  .dark img[alt*="Logo"] {
+    filter: brightness(1) contrast(1);
+  }
+
+  /* Ensure logo container is visible */
+  .logo-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+}
